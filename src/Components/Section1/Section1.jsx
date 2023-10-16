@@ -22,10 +22,7 @@ function Section1(props) {
             borderRadius: 4,
             boxShadow: state.isFocused ? null : null,
             overflow: 'initial',
-            paddingLeft: 20,
-            paddingTop: 8,
-            paddingBottom: 8,
-            fontSize: 22
+            paddingLeft: 20
         }),
         menu: (base) => ({
             ...base,
@@ -35,8 +32,7 @@ function Section1(props) {
         }),
         menuList: (base) => ({
             ...base,
-            padding: 0,
-            fontSize: 22,
+            padding: 0
         }),
         singleValue: (base) => ({
             ...base,

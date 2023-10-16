@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
 }
 
 #app-container {
@@ -9,8 +9,6 @@ body {
   margin: 0 auto;
   -webkit-text-size-adjust: 100%;
   color: #101828;
-  font-size: 16px;
-  /* line-height: 20px; */
   box-sizing: border-box;
   display: grid;
   grid-auto-columns: 1fr;

@@ -7,7 +7,6 @@
 
 #Section-2-Top {
     padding: 40px;
-    border: 1px solid rgba(255,255,255,.11);
     text-align: center;
 }
 
@@ -62,6 +61,7 @@
 
 #Section-2-Bottom {
     padding: 40px;
+    padding-top: 0px;
     border: 1px #000;
     text-align: left;
 
@@ -71,9 +71,9 @@
 }
 
 .calc-item-title {
-    margin-bottom: 30px;
+    margin-bottom: 22px;
     color: #fff;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 600;
 }
 
@@ -83,12 +83,12 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 22px;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .calc-divider {
