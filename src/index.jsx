@@ -4,7 +4,7 @@ import './index.css';
 import AppContainer from './Containers/AppContainer.jsx';
 
 
-const root = ReactDOM.createRoot(document.getElementById('workshop-calculator-div'));
+const root = ReactDOM.createRoot(document.getElementById('md-calc'));
 
 root.render(
   <React.StrictMode>
