@@ -1,0 +1,118 @@
+
+#Section-2 {
+    border-radius: 20px;
+    background-color: #141c24;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+#Section-2-Top {
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,.11);
+    text-align: center;
+}
+
+#Section-2-Top-Title {
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+#big-number {
+    color: #fff;
+    font-size: 100px;
+    line-height: 100px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 479px) {
+    #big-number {
+        font-size: 70px;
+    }
+}
+
+
+#button-div {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+#CTA-Button {
+    background-color: rgb(1, 116, 199);
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 8px;
+    margin: 10px 0px 0px;
+    transition: all 0.3s ease 0s;
+}
+
+#CTA-Button:hover {
+    background-color: #fff;
+    color: rgb(1, 116, 199);
+}
+
+#Section-2-Bottom {
+    padding: 40px;
+    border: 1px #000;
+    text-align: left;
+
+    :last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.calc-item-title {
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.calc-item {
+    color: #fff;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 30px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.calc-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255,255,255,.11);
+}
+
+@media screen and (max-width: 767px) {
+    #Section-2-Top, #Section-2-Bottom {
+        padding: 30px 20px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    #CTA-Button {
+        font-size: 15px;
+    }
+
+    #Section-2-Top-Title {
+        font-size: 23px;
+    }
+
+    #big-number {
+        margin-bottom: 20px;
+    }
+}
