@@ -39,7 +39,7 @@ function Section2() {
         const parts = roundedAmount.toString().split(".");
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-        if (amount % 1 === 0) {
+        if (Math.abs(amount - roundedAmount) < 0.0001) {
             return `$${parts[0]}`;
         } else {
             return `~$${parts[0]}`;
