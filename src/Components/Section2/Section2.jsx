@@ -21,25 +21,30 @@ function Section2() {
         monthlyIncreaseInResidualIncome = commissionPerPolicy * policiesRequired
     :
         monthlyIncreaseInResidualIncome = commissionPerPolicy * monthlyDeclines
-    const addTildeIfNotWholeNumber = (number) => Number.isInteger(number) ? number : `~${number}`;
     
-    function formatNumber(number) {
-        // Check if the number is not a whole number
-        const isWholeNumber = Number.isInteger(number);
+    function formatNumber(amount) {
+        const formattedAmount = amount.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
+          });
         
-        // Format the number with two decimal places or as a whole number
-        const formattedNumber = isWholeNumber
-          ? number.toLocaleString()
-          : number.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      
-        // Add a tilde (~) if it's not a whole number
-        return '$' + formattedNumber;
-      }
-
-    function formatNumberWithTilde(number) {
-        const isWholeNumber = Number.isInteger(number);
-        return (isWholeNumber ? '$' : '~ $') + (isWholeNumber ? number.toLocaleString() : Math.round(number).toLocaleString());
+          return formattedAmount;
     }
+
+
+    function formatNumberWithTilde(amount) {
+        const roundedAmount = Math.round(amount);
+        const parts = roundedAmount.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        if (amount % 1 === 0) {
+            return `$${parts[0]}`;
+        } else {
+            return `~$${parts[0]}`;
+        }
+      }
 
 
     return (
@@ -102,7 +107,7 @@ function Section2() {
                 {mode === "Sales Target" ?
                 ("$" + Math.round((monthlyIncreaseInResidualIncome) * timeframe).toLocaleString() + "/month")
                 :
-                (`~ ${monthsRequired} months`)
+                (`~${monthsRequired} months`)
                 }
               </div>
             </div>
