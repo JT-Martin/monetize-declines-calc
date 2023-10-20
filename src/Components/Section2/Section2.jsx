@@ -16,7 +16,32 @@ function Section2() {
     const commissionPerPolicy = (averageMonthlyPremium * (commissionPercentage / 100));
     const policiesRequired = Math.ceil((goalEarnings / timeframe) / commissionPerPolicy);
     const monthsRequired = Math.ceil(goalEarnings / (commissionPerPolicy * monthlyDeclines));
+    let monthlyIncreaseInResidualIncome
+    mode === "Sales Target" ? 
+        monthlyIncreaseInResidualIncome = commissionPerPolicy * policiesRequired
+    :
+        monthlyIncreaseInResidualIncome = commissionPerPolicy * monthlyDeclines
+    const addTildeIfNotWholeNumber = (number) => Number.isInteger(number) ? number : `~${number}`;
     
+    function formatNumber(number) {
+        // Check if the number is not a whole number
+        const isWholeNumber = Number.isInteger(number);
+        
+        // Format the number with two decimal places or as a whole number
+        const formattedNumber = isWholeNumber
+          ? number.toLocaleString()
+          : number.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      
+        // Add a tilde (~) if it's not a whole number
+        return '$' + formattedNumber;
+      }
+
+    function formatNumberWithTilde(number) {
+        const isWholeNumber = Number.isInteger(number);
+        return (isWholeNumber ? '$' : '~ $') + (isWholeNumber ? number.toLocaleString() : Math.round(number).toLocaleString());
+    }
+
+
     return (
         <div id='Section-2'>
           {mode === "Sales Target" ? (
@@ -62,23 +87,20 @@ function Section2() {
                 Monthly Increase In Residual Income:
               </div>
               <div>
-                {mode === "Sales Target" ? 
-                    ("$" + Math.round(((commissionPerPolicy * policiesRequired) + Number.EPSILON) * 100) / 100)
-                    : 
-                    ("$" + Math.round(((commissionPerPolicy * monthlyDeclines) + Number.EPSILON) * 100) / 100)}
+              {formatNumber(monthlyIncreaseInResidualIncome)}
               </div>
             </div>
             <div className="calc-item">
               <div className="calc-item-left">
                 {mode === "Sales Target" ?
-                (`$${Math.round(commissionPerPolicy * policiesRequired)}/month x ${timeframe} months =`)
+                (`${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month x ${timeframe} months =`)
                 :
-                (`$${Math.round(goalEarnings).toLocaleString()} ÷ $${Math.round(commissionPerPolicy * monthlyDeclines).toLocaleString()}/month =`)
+                (`$${Math.round(goalEarnings).toLocaleString()} ÷ ${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month =`)
                 }
               </div>
               <div>
                 {mode === "Sales Target" ?
-                ("$" + Math.round(commissionPerPolicy * policiesRequired * timeframe).toLocaleString() + "/month")
+                ("$" + Math.round((monthlyIncreaseInResidualIncome) * timeframe).toLocaleString() + "/month")
                 :
                 (`~ ${monthsRequired} months`)
                 }
