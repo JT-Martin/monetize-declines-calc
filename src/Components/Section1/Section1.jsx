@@ -1,8 +1,26 @@
-import React from "react";
+import React, {useContext} from "react";
+import { InputContext } from "../../Containers/AppContainer";
 import './Section1.css'
 import Select from 'react-select'
 
-function Section1(props) {
+function Section1() {
+    
+    const {
+        mode,
+        averageMonthlyPremium,
+        commissionPercentage,
+        goalEarnings,
+        timeframe,
+        monthlyDeclines,
+        handleModeChange,
+        handlePremiumChange,
+        handleCommissionPercentageChange,
+        handleGoalEarningsChange,
+        handleYearlyGoalEarningsChange,
+        handleTimeframeChange,
+        handleMonthlyDeclinesChange
+      } = useContext(InputContext);
+    
     function customTheme(theme) {
         return {
             ...theme,
@@ -66,58 +84,66 @@ function Section1(props) {
         {value: '36', label: '36'}
     ]
     
-    return(
+    return (
         <div id="Section-1">
-            <div className="card-padding">
-                <div className='form-div'>
-                    <form>
-                        <label className="input-label">Mode:</label>
-                        <Select 
-                            theme={customTheme} 
-                            styles={customStyles} 
-                            options={modeOptions} 
-                            value={modeOptions.find(item => item.value === props.mode)} 
-                            onChange={props.modeChange} 
-                            isSearchable={false}>
-                        </Select>
-                        <label className="input-label">Average Monthly Premium:</label>
-                        <div className='calc-input-container'>
-                            <div className="calc-input-dollar">$</div>
-                            <input type="number" className="calc-input-field" maxLength="256" min={0} value={props.averageMonthlyPremium} id="price-input-field" onChange={props.premiumChange} required/>
-                        </div>
-                        <label className="input-label">Commission Percentage:</label>
-                        <div className="calc-input-container perc">
-                            <input type="number" className="calc-input-field" min={0} max={100} maxLength="256" id="commission-percentage-input-field" value={props.commissionPercentage} onChange={props.commissionPercentageChange} required/>
-                            <div className="calc-input-perc">%</div>
-                        </div>
-                        <label className="input-label">Goal Earnings:</label>
-                        <div className="multiple-input-container">
-                            <div className='calc-input-container'>
-                                <div className="calc-input-dollar">$</div>
-                                <input type="number" className="calc-input-field" maxLength="256" min={0} value={Math.round(props.goalEarnings)} id="price-input-field" onChange={props.goalEarningsChange} required/>
-                                <div className="calc-input-suffix">/ month</div>
-                            </div>
-                            <div style={{marginBottom: 20}}>OR</div>
-                            <div className='calc-input-container'>
-                                <div className="calc-input-dollar">$</div>
-                                <input type="number" className="calc-input-field" maxLength="256" min={0} value={props.goalEarnings * 12} id="price-input-field" onChange={props.yearlyGoalEarningsChange} required/>
-                                <div className="calc-input-suffix">/ year</div>
-                            </div>
-                        </div>
-                        <label className="input-label">Months To Hit Goal Earnings:</label>
-                        <Select 
-                            theme={customTheme} 
-                            styles={customStyles} 
-                            options={timeframeOptions} 
-                            value={timeframeOptions.find(item => item.value === props.timeframe)} 
-                            onChange={props.timeframeChange} 
-                            isSearchable={false}>
-                        </Select>
-                    </form>
+          <div className="card-padding">
+            <div className='form-div'>
+              <form>
+                <label className="input-label">Mode:</label>
+                <Select 
+                  theme={customTheme} 
+                  styles={customStyles} 
+                  options={modeOptions} 
+                  value={modeOptions.find(item => item.value === mode)} 
+                  onChange={handleModeChange} 
+                  isSearchable={false}>
+                </Select>
+                {mode === "Timeframe" ? <label className="input-label">Number Of Declines Monthly:</label> : null}
+                {mode === "Timeframe" ? (
+                    <div className='calc-input-container'>
+                        <input type="number" className="calc-input-field" maxLength="256" min={0} value={monthlyDeclines} id="price-input-field" onChange={handleMonthlyDeclinesChange} required/>
+                    </div>
+                ) : null}
+                <label className="input-label">Average Monthly Premium:</label>
+                <div className='calc-input-container'>
+                  <div className="calc-input-dollar">$</div>
+                  <input type="number" className="calc-input-field" maxLength="256" min={0} value={averageMonthlyPremium} id="price-input-field" onChange={handlePremiumChange} required/>
                 </div>
+                <label className="input-label">Commission Percentage:</label>
+                <div className="calc-input-container perc">
+                  <input type="number" className="calc-input-field" min={0} maxLength="256" id="commission-percentage-input-field" value={commissionPercentage} onChange={handleCommissionPercentageChange} required/>
+                  <div className="calc-input-perc">%</div>
+                </div>
+                <label className="input-label">Goal Earnings:</label>
+                <div className="multiple-input-container">
+                  <div className='calc-input-container'>
+                    <div className="calc-input-dollar">$</div>
+                    <input type="number" className="calc-input-field" maxLength="256" min={0} value={Math.round(goalEarnings)} id="price-input-field" onChange={handleGoalEarningsChange} required/>
+                    <div className="calc-input-suffix">/ month</div>
+                  </div>
+                  <div style={{marginBottom: 20}}>OR</div>
+                  <div className='calc-input-container'>
+                    <div className="calc-input-dollar">$</div>
+                    <input type="number" className="calc-input-field" maxLength="256" min={0} value={goalEarnings * 12} id="price-input-field" onChange={handleYearlyGoalEarningsChange} required/>
+                    <div className="calc-input-suffix">/ year</div>
+                  </div>
+                </div>
+                {mode === "Sales Target" ? <label className="input-label">Months To Hit Goal Earnings:</label> : null}
+                {mode === "Sales Target" ? (
+                    <Select 
+                        theme={customTheme} 
+                        styles={customStyles} 
+                        options={timeframeOptions} 
+                        value={timeframeOptions.find(item => item.value === timeframe)} 
+                        onChange={handleTimeframeChange} 
+                        isSearchable={false}>
+                    </Select>
+                ) : null}
+              </form>
             </div>
+          </div>
         </div>
-    )
+      );
 }
 
 export default Section1
