@@ -51,12 +51,12 @@ function Section2() {
         <div className="p-5 sm:p-8 rounded-2xl bg-gray-900 w-full">
           <div id='Section-2' className="font-display">
             <div id="Section-2-Top" className="text-center mb-8">
-                <div id="Section-2-Top-Title" className="mb-5 text-white font-semibold text-base sm:text-lg">{mode === "Sales Target" ? 
+                <div id="Section-2-Top-Title" className="mb-5 text-white font-semibold text-base sm:text-lg lg:text-2xl">{mode === "Sales Target" ? 
                   `Policies required to sell each month to hit $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year within ${timeframe} months:`
                   :
                   `Months required to achieve $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year income:`
                 }</div>
-                <div id="big-number" className="text-white text-4xl font-semibold sm:text-5xl">{mode === "Sales Target" ?
+                <div id="big-number" className="text-white text-4xl font-semibold sm:text-6xl">{mode === "Sales Target" ?
                   Number(policiesRequired).toLocaleString()
                   :
                   Number(monthsRequired).toLocaleString()

@@ -84,7 +84,7 @@ function Section1() {
     ]
     
     return (
-        <div id="Section-1" className="self-center font-display text-xs sm:text-sm md:text-xs mx-3 md:mx-0 w-full px-3 md:px-0">
+        <div id="Section-1" className="self-center font-display text-base sm:text-base md:text-xs mx-3 md:mx-0 w-full px-3 md:px-0">
           <div className="card-padding text-black antialiased box-border p-3 sm:p-5 rounded-tl-2xl rounded-tr-2xl md:rounded-tr-none md:rounded-bl-2xl border border-slate-300 bg-white shadow-lg">
             <div className='form-div'>
               <form>
@@ -115,13 +115,13 @@ function Section1() {
                   <div className="calc-input-perc items-center justify-left">%</div>
                 </div>
                 <label className="input-label antialiased box-border block mb-1 font-semibold text-gray-700">Goal Earnings:</label>
-                <div className="multiple-input-container flex flex-col min-[400px]:flex-row min-[400px]:content-center items-start gap-2 min-[400px]:gap-4 mb-4">
+                <div className="multiple-input-container flex flex-col min-[450px]:flex-row min-[450px]:content-center items-start gap-2 min-[450px]:gap-4 mb-4">
                   <div className='calc-input-container antialiased text-black box-border flex p-2 border border-gray-300 rounded bg-white w-full'>
                     <div className="calc-input-dollar mr-1">$</div>
                     <input type="number" className="calc-input-field antialiased box-border w-full bg-white border-white outline-0" maxLength="256" min={0} value={Math.round(goalEarnings)} id="price-input-field" onChange={handleGoalEarningsChange} required/>
                     <div className="calc-input-suffix text-gray-400 whitespace-nowrap">/ month</div>
                   </div>
-                  <div className="min-[400px]:self-center">or</div>
+                  <div className="min-[450px]:self-center">or</div>
                   {/* <div style={{marginBottom: 20}}>OR</div> */}
                   <div className='calc-input-container antialiased text-black box-border flex p-2 border border-gray-300 rounded bg-white w-full'>
                     <div className="calc-input-dollar mr-1">$</div>
