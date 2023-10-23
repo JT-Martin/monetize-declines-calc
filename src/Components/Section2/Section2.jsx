@@ -51,7 +51,7 @@ function Section2() {
         <div className="p-5 sm:p-8 rounded-2xl bg-gray-900 w-full">
           <div id='Section-2' className="font-display">
             <div id="Section-2-Top" className="text-center mb-8">
-                <div id="Section-2-Top-Title" className="mb-5 text-white font-semibold text-base sm:text-lg lg:text-2xl">{mode === "Sales Target" ? 
+                <div id="Section-2-Top-Title" className="mb-5 text-white font-semibold text-lg sm:text-lg lg:text-2xl">{mode === "Sales Target" ? 
                   `Policies required to sell each month to hit $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year within ${timeframe} months:`
                   :
                   `Months required to achieve $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year income:`
@@ -62,7 +62,7 @@ function Section2() {
                   Number(monthsRequired).toLocaleString()
                 }</div>
             </div>
-            <div id="Section-2-Bottom" className="last:mb-0 flex flex-col gap-2 text-xs sm:text-sm md:text-sm min-[940px]:text-base ">
+            <div id="Section-2-Bottom" className="last:mb-0 flex flex-col gap-2 text-sm min-[350px]:text-base min-[940px]:text-lg">
               <div className="calc-item-title text-base sm:text-lg font-semibold text-white">How did we get this number?</div>
               <div className="calc-item text-white flex justify-between content-center">
                 <div className="calc-item-left basis-4/6">
@@ -99,14 +99,14 @@ function Section2() {
               <div className="calc-item text-white flex justify-between content-center">
                 <div className="calc-item-left basis-4/6">
                   {mode === "Sales Target" ?
-                  (`${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month x ${timeframe} months =`)
+                  (`${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/mo x ${timeframe} months =`)
                   :
-                  (`$${Math.round(goalEarnings).toLocaleString()} ÷ ${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month =`)
+                  (`$${Math.round(goalEarnings).toLocaleString()} ÷ ${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/mo =`)
                   }
                 </div>
                 <div className="self-center">
                   {mode === "Sales Target" ?
-                  ("$" + Math.round((monthlyIncreaseInResidualIncome) * timeframe).toLocaleString() + "/month")
+                  ("$" + Math.round((monthlyIncreaseInResidualIncome) * timeframe).toLocaleString() + "/mo")
                   :
                   (`~${monthsRequired} months`)
                   }
