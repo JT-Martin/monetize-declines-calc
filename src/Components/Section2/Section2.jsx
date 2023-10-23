@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import { InputContext } from "../../Containers/AppContainer";
-import './Section2.css'
+
 
 function Section2() {
     
@@ -48,67 +48,69 @@ function Section2() {
 
 
     return (
-        <div id='Section-2'>
-          {mode === "Sales Target" ? (
-            <div id="Section-2-Top">
-                <div id="Section-2-Top-Title">{`Amount of policies required to sell each month to hit $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year within ${timeframe} months:`}</div>
-                <div id="big-number">{Number(policiesRequired).toLocaleString()}</div>
+        <div className="p-5 sm:p-8 rounded-2xl bg-gray-900 w-full">
+          <div id='Section-2' className="font-display">
+            <div id="Section-2-Top" className="text-center mb-8">
+                <div id="Section-2-Top-Title" className="mb-5 text-white font-semibold text-base sm:text-lg">{mode === "Sales Target" ? 
+                  `Policies required to sell each month to hit $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year within ${timeframe} months:`
+                  :
+                  `Months required to achieve $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year income:`
+                }</div>
+                <div id="big-number" className="text-white text-4xl font-semibold sm:text-5xl">{mode === "Sales Target" ?
+                  Number(policiesRequired).toLocaleString()
+                  :
+                  Number(monthsRequired).toLocaleString()
+                }</div>
             </div>
-          ) : null}
-          {mode === "Timeframe" ? (
-            <div id="Section-2-Top">
-                <div id="Section-2-Top-Title">{`Months required to achieve $${Math.round(Number(goalEarnings)).toLocaleString()}/month or $${Math.round(Number(goalEarnings * 12)).toLocaleString()}/year income:`}</div>
-                <div id="big-number">{Number(monthsRequired).toLocaleString()}</div>
-            </div>
-          ) : null}
-          <div id="Section-2-Bottom">
-            <div className="calc-item-title">How did we get these numbers?</div>
-            <div className="calc-item">
-              <div className="calc-item-left">
-                Average Monthly Premium:
+            <div id="Section-2-Bottom" className="last:mb-0 flex flex-col gap-2 text-xs sm:text-sm md:text-sm min-[940px]:text-base ">
+              <div className="calc-item-title text-base sm:text-lg font-semibold text-white">How did we get this number?</div>
+              <div className="calc-item text-white flex justify-between content-center">
+                <div className="calc-item-left basis-4/6">
+                  Average Monthly Premium:
+                </div>
+                <div className="self-center">
+                  {`$${averageMonthlyPremium}`}
+                </div>
               </div>
-              <div>
-                {`$${averageMonthlyPremium}`}
+              <div className="calc-item text-white flex justify-between content-center">
+                <div className="calc-item-left basis-4/6">
+                  Average Monthly Commission Per Policy Sold:
+                </div>
+                <div className="self-center">
+                  {`$${commissionPerPolicy.toLocaleString()}`}
+                </div>
               </div>
-            </div>
-            <div className="calc-item">
-              <div className="calc-item-left">
-                Average Monthly Commission Per Policy Sold:
+              <div className="calc-item text-white flex justify-between content-center">
+                <div className="calc-item-left basis-4/6">
+                  Policies Sold Per Month:
+                </div>
+                <div className="self-center">
+                  {mode === "Sales Target" ? policiesRequired : monthlyDeclines}
+                </div>
               </div>
-              <div>
-                {`$${commissionPerPolicy.toLocaleString()}`}
+              <div className="calc-item text-white flex justify-between content-center">
+                <div className="calc-item-left basis-4/6">
+                  Monthly Increase In Residual Income:
+                </div>
+                <div className="self-center">
+                {formatNumber(monthlyIncreaseInResidualIncome)}
+                </div>
               </div>
-            </div>
-            <div className="calc-item">
-              <div className="calc-item-left">
-                Policies Sold Per Month:
-              </div>
-              <div>
-                {mode === "Sales Target" ? policiesRequired : monthlyDeclines}
-              </div>
-            </div>
-            <div className="calc-item">
-              <div className="calc-item-left">
-                Monthly Increase In Residual Income:
-              </div>
-              <div>
-              {formatNumber(monthlyIncreaseInResidualIncome)}
-              </div>
-            </div>
-            <div className="calc-item">
-              <div className="calc-item-left">
-                {mode === "Sales Target" ?
-                (`${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month x ${timeframe} months =`)
-                :
-                (`$${Math.round(goalEarnings).toLocaleString()} ÷ ${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month =`)
-                }
-              </div>
-              <div>
-                {mode === "Sales Target" ?
-                ("$" + Math.round((monthlyIncreaseInResidualIncome) * timeframe).toLocaleString() + "/month")
-                :
-                (`~${monthsRequired} months`)
-                }
+              <div className="calc-item text-white flex justify-between content-center">
+                <div className="calc-item-left basis-4/6">
+                  {mode === "Sales Target" ?
+                  (`${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month x ${timeframe} months =`)
+                  :
+                  (`$${Math.round(goalEarnings).toLocaleString()} ÷ ${formatNumberWithTilde(monthlyIncreaseInResidualIncome)}/month =`)
+                  }
+                </div>
+                <div className="self-center">
+                  {mode === "Sales Target" ?
+                  ("$" + Math.round((monthlyIncreaseInResidualIncome) * timeframe).toLocaleString() + "/month")
+                  :
+                  (`~${monthsRequired} months`)
+                  }
+                </div>
               </div>
             </div>
           </div>
