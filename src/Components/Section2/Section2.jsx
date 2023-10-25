@@ -64,7 +64,7 @@ function Section2() {
   }
 
   return (
-    <div className="w-full rounded-2xl bg-gray-900 p-5 sm:p-8">
+    <div className="w-full rounded-2xl bg-gray-900 p-5 shadow-lg sm:p-8">
       <div
         id="Section-2"
         className="flex h-full flex-col justify-center gap-8 font-display"
