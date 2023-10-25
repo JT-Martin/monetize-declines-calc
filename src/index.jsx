@@ -1,18 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import AppContainer from './Containers/AppContainer.jsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import AppContainer from "./Containers/AppContainer.jsx";
 
-
-const root = ReactDOM.createRoot(document.getElementById('md-calc'));
+const root = ReactDOM.createRoot(document.getElementById("md-calc"));
 
 root.render(
   <React.StrictMode>
-      <AppContainer/>
-  </React.StrictMode>
-)
+    <AppContainer />
+  </React.StrictMode>,
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-
