@@ -109,13 +109,13 @@ function Section1() {
             ) : null}
             {mode === "Timeframe" ? (
               <div
-                className={`calc-input-container mb-4 box-border flex rounded border bg-white p-2 text-black antialiased ${
+                className={`calc-input-container mb-4 box-border flex rounded border bg-white p-2 text-black antialiased focus-within:border-blue-500 ${
                   monthlyDeclines ? "border-gray-300" : "border-red-400"
                 }`}
               >
                 <input
                   type="number"
-                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0"
+                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
                   maxLength="256"
                   min={0}
                   value={monthlyDeclines}
@@ -129,14 +129,14 @@ function Section1() {
               Average Monthly Premium:
             </label>
             <div
-              className={`calc-input-container mb-4 box-border flex rounded border bg-white p-2 text-black antialiased ${
+              className={`calc-input-container mb-4 box-border flex rounded border bg-white p-2 text-black antialiased focus-within:border-blue-500 ${
                 averageMonthlyPremium ? "border-gray-300" : "border-red-400"
               }`}
             >
               <div className="calc-input-dollar mr-1">$</div>
               <input
                 type="number"
-                className="calc-input-field box-border w-full border-white bg-white antialiased outline-0"
+                className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
                 maxLength="256"
                 min={0}
                 value={averageMonthlyPremium}
@@ -149,13 +149,13 @@ function Section1() {
               Commission Percentage:
             </label>
             <div
-              className={`calc-input-container perc justify-left mb-4 box-border flex  items-center rounded border bg-white p-2 text-black antialiased ${
+              className={`calc-input-container perc justify-left mb-4 box-border flex items-center  rounded border bg-white p-2 text-black antialiased focus-within:border-blue-500 ${
                 commissionPercentage ? "border-gray-300" : "border-red-400"
               }`}
             >
               <input
                 type="number"
-                className="calc-input-field box-border w-full border-white bg-white antialiased outline-0"
+                className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
                 min={0}
                 maxLength="256"
                 id="commission-percentage-input-field"
@@ -170,14 +170,14 @@ function Section1() {
             </label>
             <div className="multiple-input-container mb-4 flex flex-col items-start gap-2 min-[450px]:flex-row min-[450px]:content-center min-[450px]:gap-4">
               <div
-                className={`calc-input-container box-border flex w-full rounded border bg-white p-2 text-black antialiased ${
+                className={`calc-input-container box-border flex w-full rounded border bg-white p-2 text-black antialiased focus-within:border-blue-500 ${
                   goalEarnings ? "border-gray-300" : "border-red-400"
                 }`}
               >
                 <div className="calc-input-dollar mr-1">$</div>
                 <input
                   type="number"
-                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0"
+                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
                   maxLength="256"
                   min={0}
                   value={Math.round(goalEarnings)}
@@ -192,14 +192,14 @@ function Section1() {
               <div className="min-[450px]:self-center">or</div>
               {/* <div style={{marginBottom: 20}}>OR</div> */}
               <div
-                className={`calc-input-container box-border flex w-full rounded border bg-white p-2 text-black antialiased ${
+                className={`calc-input-container box-border flex w-full rounded border bg-white p-2 text-black antialiased focus-within:border-blue-500 ${
                   goalEarnings ? "border-gray-300" : "border-red-400"
                 }`}
               >
                 <div className="calc-input-dollar mr-1">$</div>
                 <input
                   type="number"
-                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0"
+                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
                   maxLength="256"
                   min={0}
                   value={goalEarnings * 12}
