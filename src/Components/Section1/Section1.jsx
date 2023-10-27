@@ -115,7 +115,7 @@ function Section1() {
               >
                 <input
                   type="number"
-                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
+                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-none outline-0 focus:outline-none focus:outline-0"
                   maxLength="256"
                   min={0}
                   value={monthlyDeclines}
@@ -136,7 +136,7 @@ function Section1() {
               <div className="calc-input-dollar mr-1">$</div>
               <input
                 type="number"
-                className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
+                className="calc-input-field box-border w-full border-white bg-white antialiased outline-none outline-0 focus:outline-none focus:outline-0"
                 maxLength="256"
                 min={0}
                 value={averageMonthlyPremium}
@@ -155,7 +155,7 @@ function Section1() {
             >
               <input
                 type="number"
-                className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
+                className="calc-input-field box-border w-full border-white bg-white antialiased outline-none outline-0 focus:outline-none focus:outline-0"
                 min={0}
                 maxLength="256"
                 id="commission-percentage-input-field"
@@ -177,7 +177,7 @@ function Section1() {
                 <div className="calc-input-dollar mr-1">$</div>
                 <input
                   type="number"
-                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
+                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-none outline-0 focus:outline-none focus:outline-0"
                   maxLength="256"
                   min={0}
                   value={Math.round(goalEarnings)}
@@ -199,7 +199,7 @@ function Section1() {
                 <div className="calc-input-dollar mr-1">$</div>
                 <input
                   type="number"
-                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-0 focus:outline-0"
+                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-none outline-0 focus:outline-none focus:outline-0"
                   maxLength="256"
                   min={0}
                   value={goalEarnings * 12}
