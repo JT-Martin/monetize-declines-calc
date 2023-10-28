@@ -10,21 +10,14 @@ function App() {
     const updateDimensions = () => {
       if (appContainerRef.current) {
         const appContainer = appContainerRef.current;
-        const containerStyles = window.getComputedStyle(appContainer);
-        const containerWidth = appContainer.offsetWidth;
-        const containerHeight = appContainer.offsetHeight;
-        const contentWidth =
-          containerWidth -
-          parseFloat(containerStyles.paddingLeft) -
-          parseFloat(containerStyles.paddingRight);
-        const contentHeight =
-          containerHeight -
-          parseFloat(containerStyles.paddingTop) -
-          parseFloat(containerStyles.paddingBottom);
+        const containerWidth = appContainer.clientWidth;
+        const containerHeight = appContainer.clientHeight;
+        console.log(containerWidth);
+        console.log(containerHeight);
 
         // Send the dimensions to the parent page
         window.parent.postMessage(
-          { width: contentWidth, height: contentHeight },
+          { width: containerWidth, height: containerHeight },
           "*",
         );
       }
