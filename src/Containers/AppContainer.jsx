@@ -11,6 +11,7 @@ function AppContainer() {
   const [timeframe, setTimeframe] = useState("24");
   const [monthlyDeclines, setMonthlyDeclines] = useState("30");
 
+
   const handleModeChange = (event) => {
     const updatedMode = event.value;
     setMode(updatedMode);
