@@ -11,7 +11,7 @@ function App() {
       if (appContainerRef.current) {
         const appContainer = appContainerRef.current;
         const containerWidth = appContainer.clientWidth;
-        const containerHeight = appContainer.clientHeight;
+        const containerHeight = appContainer.clientHeight + 50;
         console.log(containerWidth);
         console.log(containerHeight);
 

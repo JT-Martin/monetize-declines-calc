@@ -5,12 +5,11 @@ export const InputContext = createContext();
 
 function AppContainer() {
   const [mode, setMode] = useState("Sales Target");
-  const [averageMonthlyPremium, setAverageMonthlyPremium] = useState("61");
-  const [commissionPercentage, setCommissionPercentage] = useState("40");
+  const [averageMonthlyPremium, setAverageMonthlyPremium] = useState("83");
+  const [commissionPercentage, setCommissionPercentage] = useState("28");
   const [goalEarnings, setGoalEarnings] = useState("12500");
   const [timeframe, setTimeframe] = useState("24");
   const [monthlyDeclines, setMonthlyDeclines] = useState("30");
-
 
   const handleModeChange = (event) => {
     const updatedMode = event.value;
