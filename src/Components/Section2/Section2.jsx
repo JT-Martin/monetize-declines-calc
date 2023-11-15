@@ -13,7 +13,12 @@ function Section2() {
 
   let completionStatus;
   if (mode === "Sales Target") {
-    if (!averageMonthlyPremium || !commissionPercentage || !goalEarnings) {
+    if (
+      !averageMonthlyPremium ||
+      !commissionPercentage ||
+      !goalEarnings ||
+      !timeframe
+    ) {
       completionStatus = "incomplete";
     }
   } else {

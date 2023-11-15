@@ -37,7 +37,7 @@ function AppContainer() {
   };
 
   const handleTimeframeChange = (event) => {
-    const updatedTimeframe = event.value;
+    const updatedTimeframe = event.target.value;
     setTimeframe(updatedTimeframe);
   };
 

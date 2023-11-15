@@ -76,11 +76,11 @@ function Section1() {
     { value: "Timeframe", label: "Calculate Time To Achieve Goal Earnings" },
   ];
 
-  const timeframeOptions = [
-    { value: "12", label: "12" },
-    { value: "24", label: "24" },
-    { value: "36", label: "36" },
-  ];
+  // const timeframeOptions = [
+  //   { value: "12", label: "12" },
+  //   { value: "24", label: "24" },
+  //   { value: "36", label: "36" },
+  // ];
 
   return (
     <div
@@ -218,17 +218,33 @@ function Section1() {
               </label>
             ) : null}
             {mode === "Sales Target" ? (
-              <Select
-                theme={customTheme}
-                styles={customStyles}
-                options={timeframeOptions}
-                value={timeframeOptions.find(
-                  (item) => item.value === timeframe,
-                )}
-                onChange={handleTimeframeChange}
-                isSearchable={false}
-              ></Select>
-            ) : null}
+              <div
+                className={`calc-input-container mb-4 box-border flex rounded border bg-white p-2 text-black antialiased focus-within:border-blue-500 ${
+                  timeframe ? "border-gray-300" : "border-red-400"
+                }`}
+              >
+                <input
+                  type="number"
+                  className="calc-input-field box-border w-full border-white bg-white antialiased outline-none outline-0 focus:outline-none focus:outline-0"
+                  maxLength="256"
+                  min={0}
+                  value={timeframe}
+                  id="month-input-field"
+                  onChange={handleTimeframeChange}
+                  required
+                />
+              </div>
+            ) : // <Select
+            //   theme={customTheme}
+            //   styles={customStyles}
+            //   options={timeframeOptions}
+            //   value={timeframeOptions.find(
+            //     (item) => item.value === timeframe,
+            //   )}
+            //   onChange={handleTimeframeChange}
+            //   isSearchable={false}
+            // ></Select>
+            null}
           </form>
         </div>
       </div>
